@@ -39,14 +39,14 @@ Route::group(['middleware' => 'web'], function () {
             Route::group(['middleware' => 'valid.membership'], function () {
 
                 Route::get('home', 'HomeController@index')->name('home');
+                Route::get('category', 'CategoryController@index')->name('index category');
+                
 
             });
 
         });
 
-        
-           
+
+
     });
 });
-
-
