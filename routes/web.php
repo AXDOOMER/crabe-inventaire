@@ -15,6 +15,8 @@
 
 Route::group(['middleware' => 'web'], function () {
 
+   
+
     Auth::routes(['verify' => true]);
 
     Route::get('/', function () {
@@ -39,7 +41,11 @@ Route::group(['middleware' => 'web'], function () {
             Route::group(['middleware' => 'valid.membership'], function () {
 
                 Route::get('home', 'HomeController@index')->name('home');
-                Route::get('category', 'CategoryController@index')->name('index category');
+                Route::get('category', 'CategoryController@index');
+                Route::get('category/{id}', 'CategoryController@show');
+                Route::post('category', 'CategoryController@create');
+                Route::put('category/{id}', 'CategoryController@update');
+                Route::delete('category/{id}', 'CategoryController@delete');
                 
 
             });
